@@ -1,0 +1,17 @@
+{% extends "layout.twig" %}
+{% block class %}galleryLayout{% endblock %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+  <h1>Gallery</h1>
+  {% if files is empty %}
+    <p>No works uploaded yet.</p>
+  {% else %}
+    <div class="grid">
+      {% for f in files %}
+        <div class="card">
+          <img src="/uploads/{{ f|url_encode }}" alt="Artwork {{ loop.index }}">
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}

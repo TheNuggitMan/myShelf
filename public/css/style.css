@@ -1,0 +1,273 @@
+
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+	background:#fbf2df;
+	margin:0;
+	position: relative;
+	color:#222;
+	color:#06081a;
+  /*color: #2c3e50;*/
+  text-align: center;
+}
+main {
+	min-height:calc(100dvh - 280px);
+}
+header,main,footer {
+	max-width:920px;
+	margin:0 auto;
+	padding:1rem;
+}
+
+header {
+	gap:1rem;
+	align-items:center;
+	justify-content:space-between;
+
+	display: grid;
+	grid-template:"logo nav" auto / 230px 1fr;
+}
+nav {
+	text-align: right;
+}
+footer a,
+nav a {
+	color:#2c3e50;
+	transition: 0.4s;
+	padding:0.6em 1em;
+	position: relative;
+}
+footer a:before,
+nav a:before {	
+	background: transparent;
+  content: '';
+  left: 50%;
+  right: 50%;
+  height: 4px;
+  bottom: 0;
+  position: absolute;
+  transition: 0.2s;
+}
+footer a:hover:before,
+footer a.active:before,
+nav a:hover:before,
+nav a.active:before {
+	background: #333;
+	left:1em;
+	right:1em;
+}
+a, a:visited, a:active {
+	text-decoration: none;
+	color:#333;
+}
+
+@media screen and (width <= 767px) {
+	header {
+		grid-template:"logo nav" auto / 130px 50px;
+	}
+	footer a:hover:before,
+	footer a.active:before,
+	nav a:hover:before,
+	nav a.active:before {
+		left:unset;
+		right:unset;
+	}
+}
+
+/* Burger ---------------------------------*/
+
+/* mobile: overlay menu hidden by default */
+.nav-toggle {
+	display:inline-block;
+	background: transparent;
+  border: unset;
+  font-size:40px;
+}
+/* prevent scroll when open */
+body.menu-open {
+	overflow:hidden;
+}
+
+.menu {
+  position:fixed;
+  inset:0;
+  padding:80px 24px;
+  top:150px;
+  z-index:99;
+}
+
+/* ----- mobile burger -------*/
+@media (max-width:767px) {
+	.menu {
+	  transform: translateX(100%);
+	  transition: 0.3s ease;
+	}
+	.menu.is-open {
+		display:grid;
+		grid-template-rows: 50px;
+  	transform: translateX(0%);
+    border-top:1px solid #333;
+    background:#e4d8be;
+	}
+	.menu a.active {
+		font-weight:700;
+	}
+}
+
+/* desktop: regular inline nav */
+@media (min-width: 768px) {
+  .nav-toggle {
+  	display:none;
+  }
+  .menu {
+  	position:static;
+  	display:flex;
+  	gap:16px;
+  	padding:0;
+  	background:transparent;
+  	justify-content: flex-end;
+  }
+  .menu a {
+  	padding:8px 12px;
+  	font-size:1rem;
+  }
+}
+
+/* screen reader helper */
+.sr-only {
+	position:absolute;
+	left:-9999px
+}
+/* -------------------------------------*/
+
+.btn {
+	display:inline-block;
+	padding:.5rem 1rem;
+	border-radius:.5rem;
+	border:1px solid #ccc;
+	background:#fff;
+}
+.grid {
+	display:grid;
+	grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+	gap:12px;
+}
+.card {
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:.75rem;
+	overflow:hidden;
+}
+img {
+	display:block;
+	width:100%;
+	height:auto;
+}
+form {
+	display:grid;
+	gap:.75rem;
+	justify-content: center;
+  text-align: center;
+}
+.error {
+	background:#fee;
+	border:1px solid #f99;
+	color:#900;
+	padding:.5rem;
+	border-radius:.5rem;
+}
+footer {
+	button.btn {
+		cursor:pointer;
+		background: #fed44f;
+    padding: 5px 8px;
+    font-weight: bold;
+	}
+}
+small {
+	display: flex;
+  justify-content: space-between;
+}
+
+
+/*   add book form only - style ---*/
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+form input, form select {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.shelf-page form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.shelf-page form button:hover {
+  background-color: #45a049;
+}
+
+.book-list {
+  margin-top: 20px;
+}
+
+.book-list h2 {
+  text-align: center;
+}
+
+.book-details {
+  flex: 1;
+}
+
+#bookList button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#bookList button.read {
+  background-color: #4CAF50;
+}
+
+#bookList button:hover {
+  opacity: 0.9;
+}
+.book-card {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width:300px;
+  box-sizing: border-box;
+
+  p,h3 {
+    text-align: center;
+  }
+  h3 {
+      background: #3e3e3e;
+      color:#fff;
+  }
+}
+
+#bookList {
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items:center;
+}

@@ -1,0 +1,17 @@
+{% extends "layout.twig" %}
+{% block class %}home-page{% endblock %}
+{% block title %}Home · Book Depo{% endblock %}
+{% block content %}
+	{# <div class="logo">
+		<img src="/images/logoTrans.png" alt="Laura Harvey's Logo - a Yellow 'L' and 'H'.">
+	</div> #}
+  <h1>Welcome to your Shelf!</h1>
+  {% if loggedIn %}
+  	<div class="shelf-container">
+  		<p>"insert books"</p>
+  	</div>
+  {% else %}
+	  <p>Login to see and add to, your shelf.</p>
+	  <a href="/login"><u>Log in</u></a> or <a href="/register"><u>Register</u></a>
+	{%  endif %}
+{% endblock %}

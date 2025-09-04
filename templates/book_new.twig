@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+{% block title %}Add a Book{% endblock %}
+{% block content %}
+<h1>Add New Book</h1>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<div class="container">
+    <!-- Form to Add New Book -->
+    <form id="bookForm" action="/books" method="post">
+			<input type="hidden" name="csrf" value="{{ csrf }}">
+      <input type="text" id="title" placeholder="Book Title" required>
+      <input type="text" id="author" placeholder="Author" required>
+			<label><textarea name="notes" placeholder="Notes"></textarea></label>
+      <select id="readStatus">
+          <option value="Not Read">Not Read</option>
+          <option value="Read">Read</option>
+      </select>
+      <button class="btn" type="submit" id="submitBook">Add Book</button>
+    </form>
+
+    
+</div>
+
+<script src="app.js"></script>
+
+{% endblock %}

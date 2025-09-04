@@ -1,0 +1,15 @@
+{% extends "layout.twig" %}
+{% block title %}Register{% endblock %}
+{% block class %}register-page{% endblock %}
+{% block content %}
+  <h1><u>Sign Up</u> to store some books!</h1>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <form action="/register" method="post" autocomplete="off">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <label>Username<br><input type="text" name="username" required></label>
+    <label>Password<br><input type="password" name="password" required></label>
+    <label>Password - Confirm<br><input type="password" name="confirm-password" required></label>
+    <button class="btn" type="submit">Register</button>
+    <p>or <a href="/login"><i>Log in</i></a></p>
+  </form>
+{% endblock %}

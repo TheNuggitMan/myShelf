@@ -1,0 +1,20 @@
+{% extends "layout.twig" %}
+{% block title %}My Shelf{% endblock %}
+{% block content %}
+<h1>My Shelf</h1>
+<p><a class="btn" href="/books/new">Add a book</a></p>
+{% if books is empty %}
+  <p>No books yet.</p>
+{% else %}
+  <ul>
+    <div class="book-list">
+      <h2>Your Library</h2>
+      <div id="bookList">
+		    {% for b in books %}
+		      <li><strong>{{ b.title }}</strong> — {{ b.author }}</li>
+		    {% endfor %}
+      </div>
+    </div>
+  </ul>
+{% endif %}
+{% endblock %}
